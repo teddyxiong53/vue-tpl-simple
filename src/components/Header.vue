@@ -8,7 +8,7 @@
             关于
           </span>
       </div>
-      <el-dialog title="关于本项目" :visible.sync="dialogVisible" width="35%">
+      <el-dialog title="关于本项目" :visible.sync="dialogVisible" width="75%">
           <div class="inside-dialog">
               <p>
               作者：
@@ -43,6 +43,23 @@ export default {
     width: 100%;
     height: 50px;
     background: lightblue;
-
+    > div.info {
+        width: 800px;
+        height: 100%;
+        margin: auto;
+        a {
+            width: 120px;
+            height: 50px;
+            display: block;
+            float: left;
+        }
+    }
+    span {
+        float: right;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+    }
 }
 </style>

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 
 import App from './App.vue'
+import 'element-ui/lib/theme-chalk/index.css'
+
 import './plugins/element.js'
 import moment from 'moment'
 import tab from '@/utils/tab'
