@@ -57,6 +57,19 @@ export default {
 
         },
         tabChanged() {
+            const store = this.store
+            console.log("current tab:",this.tab)
+            //这个是说明从来还没有进入到这个tab过。所以要重新读取数据。
+            if(!store[this.tab]) {
+                this.limit = 20
+                this.list = []
+                this.getTopics()
+                return
+            }
+            //到这里，说明之前进过这个tab。
+            //直接把之前的数据取出来就好了。
+            this.list = store[this.tab].data
+            this.limit = store[this.tab].limit
 
         }
     },
