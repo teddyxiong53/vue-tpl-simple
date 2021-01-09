@@ -12,7 +12,8 @@ import {
     MessageBox,
     TabPane,
     Tabs,
-    Icon
+    Icon,
+    Tag
 } from 'element-ui'
 
 Vue.use(Button)
@@ -28,6 +29,7 @@ Vue.use(MessageBox)
 Vue.use(TabPane)
 Vue.use(Tabs)
 Vue.use(Icon)
+Vue.use(Tag)
 
 Vue.prototype.$message = Message
 Vue.prototype.$comfirm = MessageBox

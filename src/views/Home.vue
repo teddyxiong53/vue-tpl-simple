@@ -7,12 +7,23 @@
           <el-tab-pane label="精华" name="good">
               <Content :list="list" />
           </el-tab-pane>
+          <el-tab-pane label="分享" name="share">
+              <Content :list="list" />
+          </el-tab-pane>
+          <el-tab-pane label="问答" name="ask">
+              <Content :list="list" />
+          </el-tab-pane>
+          <el-tab-pane label="招聘" name="job">
+              <Content :list="list" />
+          </el-tab-pane>
+
       </el-tabs>
   </div>
 </template>
 
 <script>
 import Content from '@/components/Content.vue'
+import {getTopics} from '@/utils/api'
 
 export default {
     name: "Home",
@@ -27,7 +38,20 @@ export default {
     },
     methods: {
         getTopics() {
-
+            getTopics({
+                page: this.page,
+                limit: this.limit,
+                tab: this.tab
+            })
+            .then((res)=> {
+                this.list = res.data
+                this.limit = this.limit +10
+                const store = this.store
+                store[this.tab]  = {
+                    limit: this.limit,
+                    data: res.data
+                }
+            })
         },
         scrollMethod() {
 
@@ -37,6 +61,8 @@ export default {
         }
     },
     created() {
+        this.tab = 'all'
+        this.getTopics()
 
     },
     destroyed() {
